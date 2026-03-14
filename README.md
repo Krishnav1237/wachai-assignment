@@ -9,7 +9,7 @@ Whenever a `ValidationRequest` is detected, the Router processes the receipt alo
 
 ---
 
-## ⚡ Quickstart
+## Quickstart
 
 ### 1. Requirements & Install
 Make sure you are using Node.js version 18+:
@@ -39,7 +39,7 @@ npx ts-node src/cli/reputation.ts latest <agentId>
 
 ---
 
-## 🏗 Architecture In Depth 
+## Architecture
 
 The MVP is designed around a **unidirectional data flow pipeline**. This prevents tight coupling between components and ensures that adding new verification logic requires zero changes to the core engines.
 
@@ -68,7 +68,7 @@ flowchart TD
 
 ---
 
-## 🔍 Testing Methodology
+## Testing Methodology
 
 The architecture was explicitly designed to be testable. Because the Aggregators and Verifiers are mostly pure functions, we bypassed heavy unit testing in favor of a robust End-to-End (E2E) integration suite using `Vitest`.
 
@@ -84,9 +84,9 @@ All tests utilize dynamically generated cryptographic signatures created in runt
 
 ---
 
-## 🧬 Extending the Framework
+## Extending the Framework
 
-Adding support for a new primitive is incredibly simple. This system allows mapping `1` primitive to `N` Verifiers via the `VerifierManager`.
+Adding support for a new primitive is straightforward. This system allows mapping `1` primitive to `N` Verifiers via the `VerifierManager`.
 
 ### 1. Create your Verifier
 Implement the `Verifier` standard interface returning a `VerifierResult`:
@@ -124,7 +124,7 @@ verifierManager.register("bridge@1", new BridgeVerifier());
 
 ---
 
-## 🗒 Example Payloads
+## Example Payloads
 
 ### The Mandate Output
 This is the payload output format signed by users (clients) and executing agents. Example path: `examples/swapMandate.json`
